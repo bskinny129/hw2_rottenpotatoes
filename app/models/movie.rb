@@ -1,7 +1,7 @@
 class Movie < ActiveRecord::Base
 
 	def self.all_ratings
-		self.all(:select => 'rating').flatten.uniq.sort
+		self.all(:select => 'distinct(rating)').flatten.uniq.sort
 	end
 
 end
