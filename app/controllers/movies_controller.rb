@@ -11,7 +11,11 @@ class MoviesController < ApplicationController
 	@all_ratings = Movie.all_ratings
 	
 	#have to change so that the search respects the ratings
-	@ratings = params[:ratings].keys
+	if ( defined?(params[:ratings] )
+		@ratings = params[:ratings].keys
+	else
+		@ratings = @all_ratings
+	end
 	@movies = Movie.find(:all, :order => @sort.to_s, :conditions => { :ratings => @ratings } )
 	
   end
