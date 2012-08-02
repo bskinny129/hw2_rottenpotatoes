@@ -1,7 +1,7 @@
 class Movie < ActiveRecord::Base
 
 	def self.all_ratings
-		self.select(:rating).uniq
+		self.select(:rating).rating.uniq
 	end
 
 end
