@@ -4,7 +4,7 @@
 %table#movies
   %thead
     %tr
-	  %th= link_to 'Movie Title', movies_path(:sort => 'title'), :id => 'title_header', :class => @sort == 'title' ? "highlighted" : ""
+      %th= link_to 'Movie Title', movies_path(:sort => 'title'), :id => 'title_header', :class => @sort == 'title' ? "highlighted" : ""
       %th Rating
       - if @sort == 'release_date'
         %th.highlighted= link_to 'Release Date', movies_path(:sort => 'release_date'), :id => 'release_date_header'
