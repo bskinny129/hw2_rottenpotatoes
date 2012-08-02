@@ -16,7 +16,7 @@ class MoviesController < ApplicationController
 	else
 		@ratings = params[:ratings].keys
 	end
-	@movies = Movie.find(:all, :order => @sort.to_s, :conditions => { :ratings => @ratings } )
+	@movies = Movie.find(:all, :order => @sort.to_s, :conditions => { :rating => @ratings } )
 	
   end
 
