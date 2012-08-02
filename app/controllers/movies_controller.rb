@@ -11,7 +11,7 @@ class MoviesController < ApplicationController
 	@all_ratings = Movie.all_ratings
 	
 	#have to change so that the search respects the ratings
-	if defined?(params[:ratings]
+	if defined?(params[:ratings])
 		@ratings = params[:ratings].keys
 	else
 		@ratings = @all_ratings
