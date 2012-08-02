@@ -9,7 +9,7 @@ class MoviesController < ApplicationController
   def index
     @sort = params[:sort]
 	
-	@movies = Movie.all
+	@movies = Movie.find(:all, :order => @sort.to_s)
 	
   end
 

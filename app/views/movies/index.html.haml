@@ -6,10 +6,7 @@
     %tr
       %th{:class => @sort == 'title' ? "highlighted" : ""}= link_to 'Movie Title', movies_path(:sort => 'title'), :id => 'title_header'
       %th Rating
-      - if @sort == 'release_date'
-        %th.highlighted= link_to 'Release Date', movies_path(:sort => 'release_date'), :id => 'release_date_header'
-      - else
-        %th= link_to 'Release Date', movies_path(:sort => 'release_date'), :id => 'release_date_header'
+      %th{:class => @sort == 'release_date' ? "highlighted" : ""}= link_to 'Release Date', movies_path(:sort => 'release_date'), :id => 'release_date_header'
       %th More Info
   %tbody
     - @movies.each do |movie|
