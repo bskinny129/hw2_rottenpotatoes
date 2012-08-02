@@ -59,6 +59,6 @@ form label {
   font-weight: bold;
   color: maroon;
 }
-tr.highlighted {
+th.highlighted {
   background-color: yellow;
 }
