@@ -7,7 +7,7 @@ class MoviesController < ApplicationController
   end
 
   def index
-  
+	session.clear
 	redirect_needed = false
   
     @sort = params[:sort]
