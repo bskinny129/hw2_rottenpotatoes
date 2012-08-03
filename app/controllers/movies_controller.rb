@@ -28,12 +28,12 @@ class MoviesController < ApplicationController
 		if session[:ratings].nil?
 			@ratings = []
 		else
-			@ratings = session[:ratings]
+			@ratings = session[:ratings].keys
 			redirect_needed = true
 		end
 	else
+		session[:ratings] = params[:ratings]
 		@ratings = params[:ratings].keys
-		session[:ratings] = @ratings
 	end
 	
 	if redirect_needed
