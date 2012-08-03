@@ -12,6 +12,7 @@ class MoviesController < ApplicationController
 	
 	#have to change so that the search respects the ratings
 	if params[:ratings].nil?
+		@ratings = []
 		@movies = Movie.find(:all, :order => @sort.to_s)
 	else
 		@ratings = params[:ratings].keys
