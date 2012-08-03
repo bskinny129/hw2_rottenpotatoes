@@ -25,7 +25,7 @@ class MoviesController < ApplicationController
 		end
 	else
 		@ratings = params[:ratings].keys
-		session[:ratings] = @ratings.to_s
+		session[:ratings] = @ratings.keys
 	end
 	
 	@movies = Movie.find(:all, :order => @sort.to_s, :conditions => { :rating => @ratings } )
