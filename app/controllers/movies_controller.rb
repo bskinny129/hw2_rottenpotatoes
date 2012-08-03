@@ -8,9 +8,14 @@ class MoviesController < ApplicationController
 
   def index
   
+	redirect_needed? = false
+  
     @sort = params[:sort]
 	if @sort.nil?
 		@sort = session[:sort]
+		if !@sort.nil?
+			redirect_needed? = true
+		end
 	else
 		session[:sort] = @sort.to_s
 	end
@@ -24,10 +29,16 @@ class MoviesController < ApplicationController
 			@ratings = []
 		else
 			@ratings = session[:ratings]
+			redirect_needed? = true
 		end
 	else
 		@ratings = params[:ratings].keys
 		session[:ratings] = @ratings
+	end
+	
+	if redirect_needed?
+		flash.keep
+		redirect_to movies_path(:sort => session[:sort], :ratings => session[:ratings] )
 	end
 	
 	@movies = Movie.find(:all, :order => @sort.to_s, :conditions => { :rating => @ratings } )
