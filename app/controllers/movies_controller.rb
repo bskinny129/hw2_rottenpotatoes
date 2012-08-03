@@ -21,9 +21,10 @@ class MoviesController < ApplicationController
 	#have to change so that the search respects the ratings
 	@ratings = params[:ratings]
 	if @ratings.nil?
-		@ratings = session[:ratings].keys
-		if @ratings.nil?
+		if session[:ratings].nil?
 			@ratings = []
+		else
+			@ratings = session[:ratings].keys
 		end
 	else
 		@ratings = params[:ratings].keys
