@@ -8,6 +8,12 @@ class MoviesController < ApplicationController
 
   def index
     @sort = params[:sort]
+	if @sort.nil?
+		@sort = session[:sort]
+	else
+		session[:sort] = @sort.to_s
+	end
+	
 	@all_ratings = Movie.all_ratings
 	
 	#have to change so that the search respects the ratings
