@@ -19,13 +19,13 @@ class MoviesController < ApplicationController
 	#have to change so that the search respects the ratings
 	@ratings = params[:ratings]
 	if @ratings.nil?
-		@ratings = session[:ratings]
+		@ratings = session[:ratings].keys
 		if @ratings.nil?
 			@ratings = []
 		end
 	else
 		@ratings = params[:ratings].keys
-		session[:ratings] = @ratings.keys
+		session[:ratings] = @ratings
 	end
 	
 	@movies = Movie.find(:all, :order => @sort.to_s, :conditions => { :rating => @ratings } )
