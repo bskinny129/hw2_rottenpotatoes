@@ -8,7 +8,6 @@ class MoviesController < ApplicationController
 
   def index
   
-	session.clear
     @sort = params[:sort]
 	if @sort.nil?
 		@sort = session[:sort]
